@@ -89,6 +89,10 @@ footer {
     color: #666;
 }
 
+a {
+  text-decoration: none;
+}
+
 /* Responsive Styles */
 @media (max-width: 600px) {
     .container {
