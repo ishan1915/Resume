@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
+/* ---------- ROOT VARIABLES ---------- */
 :root {
   --primary: #2b6cb0;
   --secondary: #f7fafc;
@@ -12,6 +13,18 @@
   --max-width: 900px;
 }
 
+/* ---------- DARK MODE VARIABLES ---------- */
+body.dark {
+  --primary: #90cdf4;
+  --secondary: #1a202c;
+  --text: #edf2f7;
+  --muted: #a0aec0;
+  --accent: #4fd1c5;
+  --bg: #2d3748;
+  --shadow: 0 4px 12px rgba(255, 255, 255, 0.08);
+}
+
+/* ---------- BASE STYLES ---------- */
 * {
   margin: 0;
   padding: 0;
@@ -22,80 +35,96 @@ body {
   font-family: 'Inter', sans-serif;
   background-color: var(--secondary);
   color: var(--text);
-  line-height: 1.7;
-  padding: 2rem;
-  display: flex;
-  justify-content: center;
+  padding: 2rem 1rem;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 .container {
-  background: var(--bg);
-  padding: 2.5rem;
   max-width: var(--max-width);
-  width: 100%;
+  margin: 0 auto;
+  background-color: var(--bg);
+  padding: 2rem;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
 }
 
-header {
-  text-align: center;
-  margin-bottom: 2rem;
+/* ---------- HEADER ---------- */
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 header h1 {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   color: var(--primary);
 }
 
-.tagline {
-  color: var(--muted);
+header .tagline {
+  margin-top: 0.5rem;
   font-size: 1rem;
-  margin: 0.3rem 0 1rem;
+  color: var(--muted);
 }
 
-.contact span {
-  display: inline-block;
-  margin: 0 0.7rem;
-  font-size: 0.9rem;
+header .contact {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.95rem;
   color: var(--text);
 }
 
+/* ---------- THEME TOGGLE ---------- */
+#theme-toggle {
+  background: transparent;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: var(--text);
+  transition: transform 0.2s ease;
+}
+
+#theme-toggle:hover {
+  transform: scale(1.2);
+}
+
+/* ---------- SECTION STYLES ---------- */
 section {
-  margin-bottom: 2rem;
+  margin-top: 2rem;
 }
 
 section h2 {
-  font-size: 1.3rem;
-  color: var(--primary);
+  font-size: 1.5rem;
   margin-bottom: 1rem;
-  border-left: 4px solid var(--accent);
-  padding-left: 0.6rem;
+  border-bottom: 2px solid var(--primary);
+  padding-bottom: 0.3rem;
+  color: var(--primary);
 }
 
-.item {
-  margin-bottom: 1.2rem;
+.education-item,
+.experience-item,
+.project-item {
+  margin-bottom: 1.5rem;
 }
 
-.item h3 {
+.education-item h3,
+.experience-item h3,
+.project-item h3 {
   font-size: 1.1rem;
-  font-weight: 600;
+  color: var(--accent);
   margin-bottom: 0.3rem;
 }
 
-.item p {
-  font-size: 0.95rem;
-  color: var(--muted);
-}
-
-.location-date {
-  font-style: italic;
-  font-size: 0.9rem;
-  color: var(--muted);
-  margin-bottom: 0.5rem;
+.education-item p,
+.experience-item p,
+.project-item p {
+  margin: 0.2rem 0;
+  color: var(--text);
 }
 
 ul {
-  padding-left: 1.2rem;
+  margin-left: 1.2rem;
   margin-top: 0.5rem;
 }
 
@@ -103,55 +132,28 @@ ul li {
   margin-bottom: 0.4rem;
 }
 
-.tags {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-}
-
-.tags li {
-  background-color: var(--accent);
-  color: white;
-  padding: 0.4rem 0.8rem;
-  border-radius: 999px;
-  font-size: 0.9rem;
-}
-
+/* ---------- LINKS ---------- */
 a {
   color: var(--primary);
   text-decoration: none;
-  font-weight: 500;
+  transition: color 0.2s ease;
 }
 
 a:hover {
+  color: var(--accent);
   text-decoration: underline;
 }
 
-.muted {
-  color: var(--muted);
-}
-
-/* Responsive Design */
+/* ---------- RESPONSIVE ---------- */
 @media (max-width: 768px) {
-  .container {
-    padding: 1.5rem;
+  .header-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
   }
 
-  header h1 {
-    font-size: 2rem;
-  }
-
-  section h2 {
-    font-size: 1.15rem;
-  }
-
-  .tags li {
-    font-size: 0.85rem;
-  }
-
-  .contact span {
-    display: block;
-    margin: 0.4rem 0;
+  header .contact {
+    flex-direction: column;
+    gap: 0.5rem;
   }
 }
