@@ -1,41 +1,42 @@
-/* Import Google Font */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
 :root {
-  --primary-color: #1e3a8a;
-  --accent-color: #10b981;
-  --bg-color: #ffffff;
-  --muted-color: #6b7280;
-  --heading-color: #111827;
-  --section-bg: #f9fafb;
-  --border-radius: 12px;
+  --primary: #2b6cb0;
+  --secondary: #f7fafc;
+  --text: #2d3748;
+  --muted: #718096;
+  --accent: #38b2ac;
+  --bg: #ffffff;
+  --radius: 8px;
   --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --max-width: 900px;
 }
 
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
   font-family: 'Inter', sans-serif;
-  background-color: var(--section-bg);
-  color: var(--heading-color);
-  line-height: 1.6;
+  background-color: var(--secondary);
+  color: var(--text);
+  line-height: 1.7;
   padding: 2rem;
+  display: flex;
+  justify-content: center;
 }
 
 .container {
-  max-width: 1000px;
-  margin: auto;
-  background: var(--bg-color);
-  border-radius: var(--border-radius);
+  background: var(--bg);
+  padding: 2.5rem;
+  max-width: var(--max-width);
+  width: 100%;
+  border-radius: var(--radius);
   box-shadow: var(--shadow);
-  padding: 2rem 2.5rem;
 }
 
-/* ---------- Header ---------- */
 header {
   text-align: center;
   margin-bottom: 2rem;
@@ -43,48 +44,58 @@ header {
 
 header h1 {
   font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--primary-color);
+  color: var(--primary);
 }
 
-.contact-info {
-  color: var(--muted-color);
-  font-size: 0.95rem;
-  margin-top: 0.5rem;
+.tagline {
+  color: var(--muted);
+  font-size: 1rem;
+  margin: 0.3rem 0 1rem;
 }
 
-.contact-info span {
-  margin: 0 0.5rem;
+.contact span {
+  display: inline-block;
+  margin: 0 0.7rem;
+  font-size: 0.9rem;
+  color: var(--text);
 }
 
-/* ---------- Section Styles ---------- */
 section {
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
 }
 
 section h2 {
-  font-size: 1.5rem;
-  border-bottom: 2px solid var(--accent-color);
-  padding-bottom: 0.4rem;
+  font-size: 1.3rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+  border-left: 4px solid var(--accent);
+  padding-left: 0.6rem;
+}
+
+.item {
   margin-bottom: 1.2rem;
-  color: var(--primary-color);
 }
 
-.education-item,
-.experience-item,
-.project-item {
-  margin-bottom: 1.5rem;
-}
-
-h3 {
-  font-size: 1.2rem;
-  color: var(--heading-color);
+.item h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
   margin-bottom: 0.3rem;
 }
 
+.item p {
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.location-date {
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+}
+
 ul {
-  list-style: disc inside;
-  padding-left: 1rem;
+  padding-left: 1.2rem;
   margin-top: 0.5rem;
 }
 
@@ -92,24 +103,37 @@ ul li {
   margin-bottom: 0.4rem;
 }
 
-/* ---------- Projects Links ---------- */
-.project-item a {
-  color: var(--accent-color);
+.tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.tags li {
+  background-color: var(--accent);
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+}
+
+a {
+  color: var(--primary);
   text-decoration: none;
-  margin-left: 0.5rem;
   font-weight: 500;
 }
 
-.project-item a:hover {
+a:hover {
   text-decoration: underline;
 }
 
-/* ---------- Responsive Design ---------- */
-@media (max-width: 768px) {
-  body {
-    padding: 1rem;
-  }
+.muted {
+  color: var(--muted);
+}
 
+/* Responsive Design */
+@media (max-width: 768px) {
   .container {
     padding: 1.5rem;
   }
@@ -118,14 +142,16 @@ ul li {
     font-size: 2rem;
   }
 
-  .contact-info {
-    font-size: 0.85rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
+  section h2 {
+    font-size: 1.15rem;
   }
 
-  section h2 {
-    font-size: 1.3rem;
+  .tags li {
+    font-size: 0.85rem;
+  }
+
+  .contact span {
+    display: block;
+    margin: 0.4rem 0;
   }
 }
